@@ -34,4 +34,6 @@ public class Agence {
 
     @OneToMany(mappedBy = "agence")
     private List<Employe> employes;
+    @OneToMany(mappedBy = "agence")
+    private List<Vehicule> vehicules;
 }
