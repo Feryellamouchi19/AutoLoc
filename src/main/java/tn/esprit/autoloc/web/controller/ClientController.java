@@ -24,7 +24,7 @@ public class ClientController {
         return clientService.retrieveClient(id);
     }
 
-    @PostMapping
+    @PostMapping("/addClient")
     public Client addClient(@RequestBody Client client) {
         return clientService.addClient(client);
     }

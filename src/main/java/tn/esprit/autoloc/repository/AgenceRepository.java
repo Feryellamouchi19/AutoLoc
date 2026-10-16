@@ -1,3 +1,4 @@
+
 package tn.esprit.autoloc.repository;
 
 import org.springframework.data.repository.CrudRepository;
