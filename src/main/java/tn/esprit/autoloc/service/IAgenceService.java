@@ -10,4 +10,7 @@ public interface IAgenceService {
     Agence retrieveAgence(Long idAgence);
     void removeAgence(Long idAgence);
     List<Agence> addAgences(List<Agence> agences);
+
+    // Scénario 4 : Rechercher les agences situées dans une ville donnée
+    List<Agence> findByVille(String ville);
 }

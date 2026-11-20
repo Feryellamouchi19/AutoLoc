@@ -42,4 +42,9 @@ public class AgenceServiceImpl implements IAgenceService {
     public List<Agence> addAgences(List<Agence> agences) {
         return (List<Agence>) AR.saveAll(agences);
     }
+
+    @Override
+    public List<Agence> findByVille(String ville) {
+        return AR.findByVille(ville);
+    }
 }

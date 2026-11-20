@@ -37,4 +37,10 @@ public class AgenceController {
     public void deleteAgence(@PathVariable Long id) {
         agenceService.removeAgence(id);
     }
+
+    // Scénario 4 : Rechercher les agences situées dans une ville donnée
+    @GetMapping("/search/ville/{ville}")
+    public List<Agence> getAgencesByVille(@PathVariable String ville) {
+        return agenceService.findByVille(ville);
+    }
 }
