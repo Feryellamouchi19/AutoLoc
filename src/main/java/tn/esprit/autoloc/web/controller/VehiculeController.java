@@ -102,4 +102,3 @@ public class VehiculeController {
         return vehiculeService.findByMarqueAndStatut(marque, statut);
     }
 }
-"teste test "
