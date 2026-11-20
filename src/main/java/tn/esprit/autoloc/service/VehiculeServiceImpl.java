@@ -2,7 +2,9 @@ package tn.esprit.autoloc.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.autoloc.domain.Agence;
 import tn.esprit.autoloc.domain.Vehicule;
+import tn.esprit.autoloc.repository.AgenceRepository;
 import tn.esprit.autoloc.repository.VehiculeRepository;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 public class VehiculeServiceImpl implements IVehiculeService {
 
     private final VehiculeRepository VR;
+    private final AgenceRepository AR;
 
     @Override
     public List<Vehicule> retrieveAllVehicules() {
@@ -41,5 +44,18 @@ public class VehiculeServiceImpl implements IVehiculeService {
     @Override
     public List<Vehicule> addVehicules(List<Vehicule> vehicules) {
         return (List<Vehicule>) VR.saveAll(vehicules);
+    }
+
+    @Override
+    public Vehicule affecterVehicule(Long idVehicule, Long idAgence) {
+        Vehicule vehicule = VR.findById(idVehicule)
+                .orElseThrow(() -> new RuntimeException("Véhicule introuvable"));
+
+        Agence agence = AR.findById(idAgence)
+                .orElseThrow(() -> new RuntimeException("Agence introuvable"));
+
+        vehicule.setAgence(agence);
+
+        return VR.save(vehicule);
     }
 }

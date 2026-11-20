@@ -38,4 +38,11 @@ public class VehiculeController {
     public void deleteVehicule(@PathVariable Long id) {
         vehiculeService.removeVehicule(id);
     }
+
+    @PutMapping("/{idVehicule}/affecter-agence/{idAgence}")
+    public Vehicule affecterVehicule(
+            @PathVariable Long idVehicule,
+            @PathVariable Long idAgence) {
+        return vehiculeService.affecterVehicule(idVehicule, idAgence);
+    }
 }
